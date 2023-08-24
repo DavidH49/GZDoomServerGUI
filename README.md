@@ -1,6 +1,6 @@
 # GZDoomServerGUI
 
-# Simple GUI to host and join GZDoom Multiplayer Servers
+Simple GUI to host and join GZDoom Multiplayer Servers
 
 To-do:
 	Read environment variable to find GZDoom installation
