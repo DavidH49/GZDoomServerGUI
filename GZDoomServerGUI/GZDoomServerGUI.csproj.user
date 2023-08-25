@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>C:\Users\03831\RiderProjects\GZDoomServerGUI\GZDoomServerGUI\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="InputReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
