@@ -1,14 +1,15 @@
 ﻿namespace GZDoomServerGUI;
 
+// This partial class contains all Textbox-related logic
 public partial class MainWindow
 {
-    // Checks which textboxes have been set and adds their values to the command
+    // Host Inputs, checks which textboxes have been set and adds their values to the command
     private List<string> GetAllHostInputs()
     {
         var config = new List<string>();
 
-        if (textWadName.Text.Trim() != string.Empty)
-            config.Add($"-iwad {textWadName.Text.Trim()}");
+        if (textboxWad.Text.Trim() != string.Empty)
+            config.Add($"-iwad {textboxWad.Text.Trim()}");
 
         if (textboxNPlayer.Text.Trim() != string.Empty)
             config.Add($"-host {textboxNPlayer.Text.Trim()}");
@@ -19,6 +20,9 @@ public partial class MainWindow
         if (textboxLevel.Text.Trim() != string.Empty)
             config.Add($"-warp {textboxLevel.Text.Trim()}");
 
+        if (textboxPort.Text.Trim() != string.Empty)
+            config.Add($"-port {textboxPort.Text}");
+
         if (checkDeathmatch.Checked)
             config.Add("-deathmatch");
 
@@ -28,7 +32,8 @@ public partial class MainWindow
         return config;
     }
 
-    // Checks which textboxes have been set and adds their values to the command
+
+    // Join Inputs, checks which textboxes have been set and adds their values to the command
     private List<string> GetAllJoinInputs()
     {
         var config = new List<string>();
@@ -36,7 +41,11 @@ public partial class MainWindow
         if (textboxWadJoin.Text.Trim() != string.Empty)
             config.Add($"-iwad {textboxWadJoin.Text.Trim()}");
 
-        config.Add($"-join {textboxHostIp.Text.Trim()}");
+        // If the IP textbox is empty, the program defaults to localhost with the default GZDoom port
+        if (textboxHostIp.Text.Trim() != string.Empty)
+            config.Add($"-join 127.0.0.1:5029");
+        else
+            config.Add($"-join {textboxHostIp.Text.Trim()}");
 
         return config;
     }

@@ -30,20 +30,24 @@ partial class MainWindow
     private void InitializeComponent()
     {
         splitContainer1 = new SplitContainer();
+        label9 = new Label();
         flowLayoutPanel1 = new FlowLayoutPanel();
         label1 = new Label();
-        textWadName = new TextBox();
+        textboxWad = new TextBox();
         label3 = new Label();
         textboxNPlayer = new TextBox();
         label7 = new Label();
         textboxSkill = new TextBox();
         label4 = new Label();
         textboxLevel = new TextBox();
+        label11 = new Label();
+        textboxPort = new TextBox();
         label2 = new Label();
         checkDeathmatch = new CheckBox();
         label8 = new Label();
         checkMonsters = new CheckBox();
         btnHostServer = new Button();
+        label10 = new Label();
         flowLayoutPanel2 = new FlowLayoutPanel();
         label6 = new Label();
         textboxWadJoin = new TextBox();
@@ -68,43 +72,59 @@ partial class MainWindow
         // splitContainer1.Panel1
         // 
         splitContainer1.Panel1.BackColor = Color.DimGray;
+        splitContainer1.Panel1.Controls.Add(label9);
         splitContainer1.Panel1.Controls.Add(flowLayoutPanel1);
         splitContainer1.Panel1.Controls.Add(btnHostServer);
         // 
         // splitContainer1.Panel2
         // 
         splitContainer1.Panel2.BackColor = Color.DimGray;
+        splitContainer1.Panel2.Controls.Add(label10);
         splitContainer1.Panel2.Controls.Add(flowLayoutPanel2);
         splitContainer1.Panel2.Controls.Add(btnJoinServer);
-        splitContainer1.Size = new Size(413, 220);
+        splitContainer1.Size = new Size(413, 263);
         splitContainer1.SplitterDistance = 200;
         splitContainer1.TabIndex = 0;
         splitContainer1.TabStop = false;
         // 
+        // label9
+        // 
+        label9.AutoSize = true;
+        label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        label9.ForeColor = Color.White;
+        label9.Location = new Point(77, 3);
+        label9.Name = "label9";
+        label9.Size = new Size(52, 21);
+        label9.TabIndex = 11;
+        label9.Text = "HOST";
+        label9.TextAlign = ContentAlignment.TopCenter;
+        // 
         // flowLayoutPanel1
         // 
         flowLayoutPanel1.Controls.Add(label1);
-        flowLayoutPanel1.Controls.Add(textWadName);
+        flowLayoutPanel1.Controls.Add(textboxWad);
         flowLayoutPanel1.Controls.Add(label3);
         flowLayoutPanel1.Controls.Add(textboxNPlayer);
         flowLayoutPanel1.Controls.Add(label7);
         flowLayoutPanel1.Controls.Add(textboxSkill);
         flowLayoutPanel1.Controls.Add(label4);
         flowLayoutPanel1.Controls.Add(textboxLevel);
+        flowLayoutPanel1.Controls.Add(label11);
+        flowLayoutPanel1.Controls.Add(textboxPort);
         flowLayoutPanel1.Controls.Add(label2);
         flowLayoutPanel1.Controls.Add(checkDeathmatch);
         flowLayoutPanel1.Controls.Add(label8);
         flowLayoutPanel1.Controls.Add(checkMonsters);
-        flowLayoutPanel1.Location = new Point(12, 20);
+        flowLayoutPanel1.Location = new Point(12, 27);
         flowLayoutPanel1.Name = "flowLayoutPanel1";
-        flowLayoutPanel1.Size = new Size(188, 165);
+        flowLayoutPanel1.Size = new Size(188, 202);
         flowLayoutPanel1.TabIndex = 1;
         // 
         // label1
         // 
         label1.Anchor = AnchorStyles.None;
         label1.AutoSize = true;
-        label1.BackColor = Color.Transparent;
+        label1.BackColor = Color.DimGray;
         label1.ForeColor = Color.White;
         label1.Location = new Point(3, 7);
         label1.Name = "label1";
@@ -112,15 +132,15 @@ partial class MainWindow
         label1.TabIndex = 1;
         label1.Text = "WAD";
         // 
-        // textWadName
+        // textboxWad
         // 
-        textWadName.BackColor = Color.Black;
-        textWadName.BorderStyle = BorderStyle.FixedSingle;
-        textWadName.ForeColor = Color.White;
-        textWadName.Location = new Point(43, 3);
-        textWadName.Name = "textWadName";
-        textWadName.Size = new Size(133, 23);
-        textWadName.TabIndex = 0;
+        textboxWad.BackColor = Color.Black;
+        textboxWad.BorderStyle = BorderStyle.FixedSingle;
+        textboxWad.ForeColor = Color.White;
+        textboxWad.Location = new Point(43, 3);
+        textboxWad.Name = "textboxWad";
+        textboxWad.Size = new Size(133, 23);
+        textboxWad.TabIndex = 0;
         // 
         // label3
         // 
@@ -185,11 +205,33 @@ partial class MainWindow
         textboxLevel.Size = new Size(133, 23);
         textboxLevel.TabIndex = 9;
         // 
+        // label11
+        // 
+        label11.Anchor = AnchorStyles.None;
+        label11.AutoSize = true;
+        label11.ForeColor = Color.White;
+        label11.Location = new Point(3, 123);
+        label11.Name = "label11";
+        label11.Size = new Size(29, 15);
+        label11.TabIndex = 14;
+        label11.Text = "Port";
+        // 
+        // textboxPort
+        // 
+        textboxPort.BackColor = Color.Black;
+        textboxPort.BorderStyle = BorderStyle.FixedSingle;
+        textboxPort.ForeColor = Color.White;
+        textboxPort.Location = new Point(38, 119);
+        textboxPort.Name = "textboxPort";
+        textboxPort.Size = new Size(138, 23);
+        textboxPort.TabIndex = 10;
+        // 
         // label2
         // 
+        label2.Anchor = AnchorStyles.None;
         label2.AutoSize = true;
         label2.ForeColor = Color.White;
-        label2.Location = new Point(3, 116);
+        label2.Location = new Point(3, 147);
         label2.Name = "label2";
         label2.Size = new Size(72, 15);
         label2.TabIndex = 10;
@@ -199,7 +241,7 @@ partial class MainWindow
         // 
         checkDeathmatch.AutoSize = true;
         flowLayoutPanel1.SetFlowBreak(checkDeathmatch, true);
-        checkDeathmatch.Location = new Point(81, 119);
+        checkDeathmatch.Location = new Point(81, 148);
         checkDeathmatch.Name = "checkDeathmatch";
         checkDeathmatch.Size = new Size(15, 14);
         checkDeathmatch.TabIndex = 11;
@@ -210,7 +252,7 @@ partial class MainWindow
         label8.Anchor = AnchorStyles.None;
         label8.AutoSize = true;
         label8.ForeColor = Color.White;
-        label8.Location = new Point(3, 138);
+        label8.Location = new Point(3, 167);
         label8.Name = "label8";
         label8.Size = new Size(56, 15);
         label8.TabIndex = 12;
@@ -220,7 +262,7 @@ partial class MainWindow
         // 
         checkMonsters.Anchor = AnchorStyles.None;
         checkMonsters.AutoSize = true;
-        checkMonsters.Location = new Point(65, 139);
+        checkMonsters.Location = new Point(65, 168);
         checkMonsters.Name = "checkMonsters";
         checkMonsters.Size = new Size(15, 14);
         checkMonsters.TabIndex = 13;
@@ -229,7 +271,7 @@ partial class MainWindow
         // btnHostServer
         // 
         btnHostServer.Anchor = AnchorStyles.Bottom;
-        btnHostServer.Location = new Point(62, 190);
+        btnHostServer.Location = new Point(62, 233);
         btnHostServer.Name = "btnHostServer";
         btnHostServer.Size = new Size(75, 23);
         btnHostServer.TabIndex = 10;
@@ -237,13 +279,25 @@ partial class MainWindow
         btnHostServer.UseVisualStyleBackColor = true;
         btnHostServer.Click += btnHostServer_Click;
         // 
+        // label10
+        // 
+        label10.AutoSize = true;
+        label10.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        label10.ForeColor = Color.White;
+        label10.Location = new Point(84, 3);
+        label10.Name = "label10";
+        label10.Size = new Size(47, 21);
+        label10.TabIndex = 12;
+        label10.Text = "JOIN";
+        label10.TextAlign = ContentAlignment.TopCenter;
+        // 
         // flowLayoutPanel2
         // 
         flowLayoutPanel2.Controls.Add(label6);
         flowLayoutPanel2.Controls.Add(textboxWadJoin);
         flowLayoutPanel2.Controls.Add(label5);
         flowLayoutPanel2.Controls.Add(textboxHostIp);
-        flowLayoutPanel2.Location = new Point(21, 20);
+        flowLayoutPanel2.Location = new Point(27, 27);
         flowLayoutPanel2.Name = "flowLayoutPanel2";
         flowLayoutPanel2.Size = new Size(170, 100);
         flowLayoutPanel2.TabIndex = 2;
@@ -273,7 +327,7 @@ partial class MainWindow
         // 
         label5.Anchor = AnchorStyles.None;
         label5.AutoSize = true;
-        label5.BackColor = Color.Transparent;
+        label5.BackColor = Color.DimGray;
         label5.ForeColor = Color.White;
         label5.Location = new Point(3, 36);
         label5.Name = "label5";
@@ -294,7 +348,7 @@ partial class MainWindow
         // btnJoinServer
         // 
         btnJoinServer.Anchor = AnchorStyles.Bottom;
-        btnJoinServer.Location = new Point(68, 190);
+        btnJoinServer.Location = new Point(68, 233);
         btnJoinServer.Name = "btnJoinServer";
         btnJoinServer.Size = new Size(75, 23);
         btnJoinServer.TabIndex = 20;
@@ -306,12 +360,14 @@ partial class MainWindow
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(413, 220);
+        ClientSize = new Size(413, 263);
         Controls.Add(splitContainer1);
         Name = "MainWindow";
         Text = "GZDoom Multiplayer Tool";
         splitContainer1.Panel1.ResumeLayout(false);
+        splitContainer1.Panel1.PerformLayout();
         splitContainer1.Panel2.ResumeLayout(false);
+        splitContainer1.Panel2.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
         splitContainer1.ResumeLayout(false);
         flowLayoutPanel1.ResumeLayout(false);
@@ -328,7 +384,7 @@ partial class MainWindow
     private Button btnJoinServer;
     private FlowLayoutPanel flowLayoutPanel1;
     private Label label1;
-    private TextBox textWadName;
+    private TextBox textboxWad;
     private Label label3;
     private TextBox textboxNPlayer;
     private Label label4;
@@ -344,4 +400,8 @@ partial class MainWindow
     private CheckBox checkDeathmatch;
     private Label label8;
     private CheckBox checkMonsters;
+    private Label label9;
+    private Label label10;
+    private Label label11;
+    private TextBox textboxPort;
 }
