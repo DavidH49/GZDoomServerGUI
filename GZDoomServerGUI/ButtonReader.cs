@@ -1,11 +1,10 @@
 ﻿namespace GZDoomServerGUI;
 
 // This partial class contains all Button-related logic
-public partial class MainWindow
-{
+public partial class MainWindow {
+    // TODO replace GZDOOM with PATH path to gzdoom.exe
     // Tries to get the environment variable GZDOOM
-    public static string? GzDoom
-        => Environment.GetEnvironmentVariable("GZDOOM");
+    public static string? GzDoomPath => Environment.GetEnvironmentVariable("GZDOOM");
 
 
     // Executes when the Host button is pressed
@@ -13,11 +12,7 @@ public partial class MainWindow
         HostInputs inputs = GetHostInputs();
         List<string> inputsList = EvaluateHostInputs(inputs);
 
-        // Converts the List to one string of cmd commands
-        string configStr = string.Join(" ", inputsList.ToArray());
-
-        // Executes GZDoom with the string of cmd commands
-        System.Diagnostics.Process.Start(GzDoom ?? string.Empty, configStr);
+        StartGzDoom(inputsList);
     }
 
 
@@ -26,10 +21,15 @@ public partial class MainWindow
         JoinInputs inputs = GetJoinInputs();
         List<string> inputsList = EvaluateJoinInputs(inputs);
 
+        StartGzDoom(inputsList);
+    }
+
+
+    private void StartGzDoom(List<string> inputs) {
         // Converts the List to one string of cmd commands
-        string configStr = string.Join(" ", inputsList.ToArray());
+        string configStr = string.Join(" ", inputs.ToArray());
 
         // Executes GZDoom with the string of cmd commands
-        System.Diagnostics.Process.Start(GzDoom ?? string.Empty, configStr);
+        System.Diagnostics.Process.Start(GzDoomPath ?? string.Empty, configStr);
     }
 }

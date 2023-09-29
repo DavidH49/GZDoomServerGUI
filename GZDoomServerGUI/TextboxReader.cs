@@ -1,11 +1,8 @@
 ﻿namespace GZDoomServerGUI;
 
 // This partial class contains all Textbox-related logic
-public partial class MainWindow
-{
-    /// <summary>
-    /// Gets the values of all the Host textboxes
-    /// </summary>
+public partial class MainWindow {
+    // Gets the values of all the Host textboxes
     private HostInputs GetHostInputs() {
         return new HostInputs {
             Wad = textboxWad.Text.Trim(),
@@ -18,9 +15,8 @@ public partial class MainWindow
         };
     }
 
-    /// <summary>
-    /// Gets the values of all the Join textboxes
-    /// </summary>
+
+    // Gets the values of all the Join textboxes
     private JoinInputs GetJoinInputs() {
         return new JoinInputs {
             Wad = textboxWadJoin.Text.Trim(),
@@ -29,9 +25,7 @@ public partial class MainWindow
     }
 
 
-    /// <summary>
-    /// Host Inputs, checks which have been set and adds their values to the command
-    /// </summary>
+    // Host Inputs, checks which have been set and adds their values to the command
     private List<string> EvaluateHostInputs(HostInputs inputs) {
         var config = new List<string>();
 
@@ -67,9 +61,7 @@ public partial class MainWindow
     }
 
 
-    /// <summary>
-    /// Join Inputs, checks which have been set and adds their values to the command
-    /// </summary>
+    // Join Inputs, checks which have been set and adds their values to the command
     private List<string> EvaluateJoinInputs(JoinInputs inputs) {
         var config = new List<string>();
 
