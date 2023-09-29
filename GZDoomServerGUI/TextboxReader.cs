@@ -3,49 +3,86 @@
 // This partial class contains all Textbox-related logic
 public partial class MainWindow
 {
-    // Host Inputs, checks which textboxes have been set and adds their values to the command
-    private List<string> GetAllHostInputs()
-    {
+    /// <summary>
+    /// Gets the values of all the Host textboxes
+    /// </summary>
+    private HostInputs GetHostInputs() {
+        return new HostInputs {
+            Wad = textboxWad.Text.Trim(),
+            NPlayers = textboxNPlayer.Text.Trim(),
+            Skill = textboxSkill.Text.Trim(),
+            Level = textboxLevel.Text.Trim(),
+            Port = textboxPort.Text.Trim(),
+            Deathmatch = checkDeathmatch.Checked,
+            Monsters = checkMonsters.Checked,
+        };
+    }
+
+    /// <summary>
+    /// Gets the values of all the Join textboxes
+    /// </summary>
+    private JoinInputs GetJoinInputs() {
+        return new JoinInputs {
+            Wad = textboxWadJoin.Text.Trim(),
+            Ip = textboxHostIp.Text.Trim(),
+        };
+    }
+
+
+    /// <summary>
+    /// Host Inputs, checks which have been set and adds their values to the command
+    /// </summary>
+    private List<string> EvaluateHostInputs(HostInputs inputs) {
         var config = new List<string>();
 
-        if (textboxWad.Text.Trim() != string.Empty)
+        if (inputs.Wad != string.Empty) {
             config.Add($"-iwad {textboxWad.Text.Trim()}");
+        }
 
-        if (textboxNPlayer.Text.Trim() != string.Empty)
+        if (inputs.NPlayers != string.Empty) {
             config.Add($"-host {textboxNPlayer.Text.Trim()}");
+        }
 
-        if (textboxSkill.Text.Trim() != string.Empty)
+        if (inputs.Skill != string.Empty) {
             config.Add($"-skill {textboxSkill.Text.Trim()}");
+        }
 
-        if (textboxLevel.Text.Trim() != string.Empty)
+        if (inputs.Level != string.Empty) {
             config.Add($"-warp {textboxLevel.Text.Trim()}");
+        }
 
-        if (textboxPort.Text.Trim() != string.Empty)
+        if (inputs.Port != string.Empty) {
             config.Add($"-port {textboxPort.Text}");
+        }
 
-        if (checkDeathmatch.Checked)
+        if (inputs.Deathmatch) {
             config.Add("-deathmatch");
+        }
 
-        if (!checkMonsters.Checked)
+        if (!inputs.Monsters) {
             config.Add("-nomonsters");
+        }
 
         return config;
     }
 
 
-    // Join Inputs, checks which textboxes have been set and adds their values to the command
-    private List<string> GetAllJoinInputs()
-    {
+    /// <summary>
+    /// Join Inputs, checks which have been set and adds their values to the command
+    /// </summary>
+    private List<string> EvaluateJoinInputs(JoinInputs inputs) {
         var config = new List<string>();
 
-        if (textboxWadJoin.Text.Trim() != string.Empty)
+        if (inputs.Wad != string.Empty) {
             config.Add($"-iwad {textboxWadJoin.Text.Trim()}");
+        }
 
         // If the IP textbox is empty, the program defaults to localhost with the default GZDoom port
-        if (textboxHostIp.Text.Trim() != string.Empty)
-            config.Add($"-join 127.0.0.1:5029");
-        else
+        if (inputs.Ip != string.Empty) {
             config.Add($"-join {textboxHostIp.Text.Trim()}");
+        } else {
+            config.Add($"-join 127.0.0.1:5029");
+        }
 
         return config;
     }
