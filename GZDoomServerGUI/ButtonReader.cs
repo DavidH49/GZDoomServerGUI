@@ -4,7 +4,7 @@
 public partial class MainWindow {
     // TODO replace GZDOOM with PATH path to gzdoom.exe
     // Tries to get the environment variable GZDOOM
-    public static string? GzDoomPath => Environment.GetEnvironmentVariable("GZDOOM");
+    private static string? GzDoomPath => Environment.GetEnvironmentVariable("GZDOOM");
 
 
     // Executes when the Host button is pressed
@@ -25,11 +25,18 @@ public partial class MainWindow {
     }
 
 
+    // Constructs a command from the parameter inputs and starts GZDOOM
     private void StartGzDoom(List<string> inputs) {
         // Converts the List to one string of cmd commands
         string configStr = string.Join(" ", inputs.ToArray());
 
+        // If the path is null, GZDOOM can't start
+        if (GzDoomPath == null) {
+            Console.WriteLine("GzDoomPath is null! GZDOOM executable can't be found!");
+            return;
+        }
+
         // Executes GZDoom with the string of cmd commands
-        System.Diagnostics.Process.Start(GzDoomPath ?? string.Empty, configStr);
+        System.Diagnostics.Process.Start(GzDoomPath, configStr);
     }
 }
